@@ -28,7 +28,19 @@ def save_expenses(expenses):
     with open(EXPENSE_FILE, 'w') as file:
         json.dump(data, file, indent=4)
     print("Saved!")
-    
+
+def add_expense(expenses):
+    print("\n--- Add Expense ---")
+    try:
+        amount = float(input("Amount: $"))
+        category = input("Category: ")
+        date = input("Date (YYYY-MM-DD): ")
+        expense = Expense(amount, category, date)
+        expenses.append(expense)
+        print("Added!")
+    except:
+        print("Error!")    
+        
 def display_menu():
     print("\n=== EXPENSE TRACKER ===")
     print("1. Add Expense")
