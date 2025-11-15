@@ -7,6 +7,20 @@ class Expense:
         self._category = category
         self._date = date
     
+    # Getters
+    def get_amount(self):
+        return self._amount
+    
+    def get_category(self):
+        return self._category
+    
+    # Setters
+    def set_amount(self, amount):
+        self._amount = amount
+    
+    def set_category(self, category):
+        self._category = category
+    
     def __str__(self):
         return f"{self._date} | ${self._amount} | {self._category}"
 
