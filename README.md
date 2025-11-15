@@ -12,7 +12,7 @@ Python application for tracking and managing personal expenses.
 
 ## How to Run
 ```bash
-python expense.py
+python Python_project_expense_tracker.py
 ```
 
 ## Requirements
