@@ -1,3 +1,6 @@
+import json
+import os
+
 class Expense:
     def __init__(self, amount, category, date):
         self._amount = amount
@@ -6,6 +9,25 @@ class Expense:
     
     def __str__(self):
         return f"{self._date} | ${self._amount} | {self._category}"
+
+EXPENSE_FILE = "expenses.json"
+
+def load_expenses():
+    if os.path.exists(EXPENSE_FILE):
+        with open(EXPENSE_FILE, 'r') as file:
+            data = json.load(file)
+            expenses = []
+            for item in data:
+                expense = Expense(item["amount"], item["category"], item["date"], "")
+                expenses.append(expense)
+            return expenses
+    return []
+
+def save_expenses(expenses):
+    data = [{"amount": e._amount, "category": e._category, "date": e._date} for e in expenses]
+    with open(EXPENSE_FILE, 'w') as file:
+        json.dump(data, file, indent=4)
+    print("Saved!")
     
 def display_menu():
     print("\n=== EXPENSE TRACKER ===")
