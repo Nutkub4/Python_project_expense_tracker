@@ -84,13 +84,38 @@ def delete_expense(expenses):
         print("Error!")
 
 def display_menu():
-    print("\n=== EXPENSE TRACKER ===")
+    print("\n" + "="*40)
+    print("EXPENSE TRACKER")
+    print("="*40)
     print("1. Add Expense")
     print("2. View Expenses")
-    print("3. Exit")
+    print("3. Edit Expense")
+    print("4. Delete Expense")
+    print("5. Save & Exit")
+    print("="*40)
 
 def main():
-    print("Expense Tracker - Basic Version")
+    expenses = load_expenses()
+    print(f"Welcome! Loaded {len(expenses)} expenses.")
+    
+    while True:
+        display_menu()
+        choice = input("Choice: ")
+        
+        if choice == "1":
+            add_expense(expenses)
+        elif choice == "2":
+            view_expenses(expenses)
+        elif choice == "3":
+            edit_expense(expenses)
+        elif choice == "4":
+            delete_expense(expenses)
+        elif choice == "5":
+            save_expenses(expenses)
+            print("Goodbye!")
+            break
+        else:
+            print("Invalid!")
     
 if __name__ == "__main__":
     main()
