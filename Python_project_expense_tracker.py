@@ -39,8 +39,19 @@ def add_expense(expenses):
         expenses.append(expense)
         print("Added!")
     except:
-        print("Error!")    
-        
+        print("Error!")   
+
+def view_expenses(expenses):
+    print("\n--- All Expenses ---")
+    if not expenses:
+        print("No expenses.")
+        return
+    total = 0
+    for i, expense in enumerate(expenses, 1):
+        print(f"{i}. {expense}")
+        total += expense._amount
+    print(f"\nTotal: ${total:.2f}") 
+
 def display_menu():
     print("\n=== EXPENSE TRACKER ===")
     print("1. Add Expense")
