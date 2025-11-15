@@ -6,6 +6,12 @@ class Expense:
     
     def __str__(self):
         return f"{self._date} | ${self._amount} | {self._category}"
+    
+def display_menu():
+    print("\n=== EXPENSE TRACKER ===")
+    print("1. Add Expense")
+    print("2. View Expenses")
+    print("3. Exit")
 
 def main():
     print("Expense Tracker - Basic Version")
