@@ -50,7 +50,24 @@ def view_expenses(expenses):
     for i, expense in enumerate(expenses, 1):
         print(f"{i}. {expense}")
         total += expense._amount
-    print(f"\nTotal: ${total:.2f}") 
+    print(f"\nTotal: ${total:.2f}")
+
+def edit_expense(expenses):
+    print("\n--- Edit Expense ---")
+    if not expenses:
+        print("No expenses.")
+        return
+    view_expenses(expenses)
+    try:
+        index = int(input("Number to edit: ")) - 1
+        if 0 <= index < len(expenses):
+            expense = expenses[index]
+            amount = input(f"New amount (${expense._amount}): ")
+            if amount:
+                expense._amount = float(amount)
+            print("Updated!")
+    except:
+        print("Error!") 
 
 def display_menu():
     print("\n=== EXPENSE TRACKER ===")
