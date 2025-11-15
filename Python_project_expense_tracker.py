@@ -69,6 +69,20 @@ def edit_expense(expenses):
     except:
         print("Error!") 
 
+def delete_expense(expenses):
+    print("\n--- Delete Expense ---")
+    if not expenses:
+        print("No expenses.")
+        return
+    view_expenses(expenses)
+    try:
+        index = int(input("Number to delete: ")) - 1
+        if 0 <= index < len(expenses):
+            deleted = expenses.pop(index)
+            print(f"Deleted: {deleted}")
+    except:
+        print("Error!")
+
 def display_menu():
     print("\n=== EXPENSE TRACKER ===")
     print("1. Add Expense")
